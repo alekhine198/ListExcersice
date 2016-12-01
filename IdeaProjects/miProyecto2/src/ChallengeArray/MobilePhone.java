@@ -15,15 +15,6 @@ public class MobilePhone {
         this.myContacts = new ArrayList<Contacts>();
     }
 
-    public void printInstructions(){
-        System.out.println("\nPress: ");
-        System.out.println("\t0 - to print list of contacts.");
-        System.out.println("\t1 - to add a new contact");
-        System.out.println("\t2 - to update a contact");
-        System.out.println("\t3 - to remove a contact");
-        System.out.println("\t4 - to quit");
-    }
-
     public boolean addContact(Contacts contact){
         if (findContact(contact.getContactsName())>= 0){
             System.out.println("Contact is already on the list.");
@@ -76,6 +67,11 @@ public class MobilePhone {
     }
 
 
-
-
+    public void printContacts() {
+        for (int i = 0; i < myContacts.size(); i++){
+            System.out.println((i+1) + ". " +
+                                this.myContacts.get(i).getContactsName() + "->" +
+                                this.myContacts.get(i).getContactNumber());
+        }
+    }
 }
