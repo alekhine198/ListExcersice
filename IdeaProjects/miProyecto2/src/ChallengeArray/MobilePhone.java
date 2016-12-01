@@ -24,9 +24,29 @@ public class MobilePhone {
         System.out.println("\t4 - to quit");
     }
 
-    public void addContact(){
-        myContacts.add()
+    public boolean addContact(Contacts contact){
+        if (findContact(contact.getContactsName())>= 0){
+            System.out.println("Contact is already on the list.");
+            return false;
+        }
+        this.myContacts.add(contact);
+        return true;
     }
+
+    private int findContact(Contacts contact) {
+        return myContacts.indexOf(contact);
+    }
+    private int findContact(String contactName) {
+        for (int i = 0; i<this.myContacts.size(); i++){
+            Contacts contacts = this.myContacts.get(i);
+            if (contacts.getContactsName().equals(contactName)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
 
 
 }
