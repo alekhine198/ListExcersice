@@ -33,6 +33,35 @@ public class MobilePhone {
         return true;
     }
 
+    public boolean updateContact(Contacts oldContact, Contacts newContact){
+        int foundContact = findContact(oldContact);
+        if (foundContact < 0){
+            System.out.println("Contact was not found");
+            return false;
+        }
+        this.myContacts.set(foundContact, newContact);
+        System.out.println(oldContact.getContactsName() + " was replaced for " + newContact.getContactsName());
+        return true;
+    }
+
+    public String queryContact(Contacts contactName){
+        if (findContact(contactName) >= 0){
+            return contactName.getContactsName();
+        }
+        return null;
+    }
+
+    public boolean removeContact(Contacts contactName){
+        int foundContact = findContact(contactName);
+        if (foundContact < 0){
+            System.out.println("Contact " + contactName.getContactsName()+ " was not found");
+            return false;
+        }
+        this.myContacts.remove(foundContact);
+        System.out.println("Contact " + contactName.getContactsName() + " was removed");
+        return true;
+    }
+
     private int findContact(Contacts contact) {
         return myContacts.indexOf(contact);
     }
