@@ -42,6 +42,15 @@ public class MobilePhone {
         return null;
     }
 
+    public Contacts queryContact(String contact){
+        int position = findContact(contact);
+        if (position > 0){
+            return this.myContacts.get(position);
+
+        }
+        return null;
+    }
+
     public boolean removeContact(Contacts contactName){
         int foundContact = findContact(contactName);
         if (foundContact < 0){
