@@ -2,9 +2,7 @@ package ChallengeArray;
 
 import java.util.ArrayList;
 
-/**
- * Created by angel alekhine on 11/29/2016.
- */
+
 public class MobilePhone {
 
     private String myNumber;
@@ -44,7 +42,7 @@ public class MobilePhone {
 
     public Contacts queryContact(String contact){
         int position = findContact(contact);
-        if (position > 0){
+        if (position >= 0){
             return this.myContacts.get(position);
 
         }
